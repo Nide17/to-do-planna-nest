@@ -7,4 +7,10 @@ import { AppService } from './app.service';
 // EXPORT CONTROLLER TO BE USED IN OTHER MODULES
 export class AppController {
   constructor(private readonly appService: AppService) {}
+
+  // THIS IS THE ROOT ROUTE
+  @Get()
+  getHello(): string {
+    return this.appService.getHello();
+  }
 }

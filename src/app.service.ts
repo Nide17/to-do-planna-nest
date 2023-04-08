@@ -7,4 +7,9 @@ export class AppService {
 
   // INJECT Sequelize OBJECT TO BE USED IN THIS SERVICE
   constructor(private sequelize: Sequelize) {}
+
+  // ROOT FUNCTION
+  getHello(): string {
+    return 'Hello at ToDoPlanna!';
+  }
 }
