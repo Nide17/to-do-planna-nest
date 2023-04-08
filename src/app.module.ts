@@ -26,6 +26,13 @@ dotenv.config();
       // models: [__dirname + '/**/*.model.ts'], // THIS WILL IMPORT ALL THE MODELS IN THE ENTIRE PROJECT
       autoLoadModels: true, // THIS WILL IMPORT ALL THE MODELS IN THE ENTIRE PROJECT
       synchronize: true, // THIS WILL CREATE THE TABLES AUTOMATICALLY
+      ssl: true,
+      dialectOptions: {
+        ssl: {
+          require: true,
+          rejectUnauthorized: false
+        }
+      }
     })
   
   ], // IMPORT ALL OTHER MODULES HERE 
