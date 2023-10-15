@@ -10,7 +10,7 @@ import { User } from './user.model';
 // THIS IS USED FOR ALL USERS RELATED SERVICES AND CONTROLLERS
 @Module({
   imports: [SequelizeModule.forFeature([User])], // IMPORT THE USER MODEL HERE TO BE USED IN THIS MODULE - Register modules
-  exports: [SequelizeModule], // EXPORT THE USER MODEL HERE TO BE USED IN OTHER MODULES
+  exports: [SequelizeModule, UsersService], // EXPORT THE USER MODEL HERE TO BE USED IN OTHER MODULES
   controllers: [UsersController], // CONTROLLER IS IMPORTED HERE TO BE USED IN THIS MODULE
   providers: [UsersService] // USERS SERVICE or PROVIDER IS IMPORTED HERE TO BE USED IN THIS MODULE
 })

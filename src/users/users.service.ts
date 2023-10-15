@@ -4,6 +4,9 @@ import { User } from './user.model';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 
+// IMPORT BCYPT TO HASH PASSWORDS
+import * as bcrypt from 'bcrypt';
+
 // SERVICE IS USED TO HANDLE ALL LOGIC FOR THIS MODULE
 @Injectable() // THIS IS USED TO INJECT THIS SERVICE INTO OTHER SERVICES
 
@@ -64,8 +67,23 @@ export class UsersService {
         });
     }
 
+    // GET A SINGLE USER BY EMAIL
+    getUserByEmail(email: string): Promise<User> {
+
+        // FIND THE USER BY EMAIL
+        return this.userModel.findOne({
+            where: {
+                email: email
+            }
+        });
+    }
+    
     // CREATE A NEW USER USING THE USER MODEL OR DTO
     createUser(createUserDto: CreateUserDto): Promise<User>{
+
+        // HASH THE PASSWORD BEFORE SAVING TO THE DATABASE
+        createUserDto.password = bcrypt.hashSync(createUserDto.password, 10);
+
         // CREATE A NEW USER USING THE USER MODEL
         return this.userModel.create({...createUserDto});
     }

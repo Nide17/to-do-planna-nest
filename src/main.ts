@@ -3,9 +3,9 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
 
-  // CREATE A NEW INSTANCE OF THE APP
+  // CREATE OR BOOTSTRAP A NEW INSTANCE OF THE APP
   const app = await NestFactory.create(AppModule);
-  const port = process.env.PORT || 3000;
+  const port = process.env.PORT || 5000;
 
   // ENABLE CORS - ALLOW CROSS ORIGIN RESOURCE SHARING
   app.enableCors();
@@ -13,4 +13,6 @@ async function bootstrap() {
   // START THE SERVER
   await app.listen(port);
 }
+
+// CALL THE BOOTSTRAP FUNCTION TO START THE SERVER
 bootstrap();

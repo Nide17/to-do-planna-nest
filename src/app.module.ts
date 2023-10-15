@@ -1,9 +1,12 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './users/users.module';
 
-// BRING IN THE SequelizeModule MODULE
+import { UsersModule } from './users/users.module';
+import { TodosListsModule } from './todosLists/todosList.module';
+import { AuthModule } from './auth/auth.module';
+
+// BRING IN THE SequelizeModule MODULE 
 import { SequelizeModule } from '@nestjs/sequelize';
 
 // ENVIRONMENT VARIABLES
@@ -13,7 +16,7 @@ dotenv.config();
 // THIS IS THE MAIN MODULE THAT WILL BE USED TO IMPORT ALL OTHER MODULES
 @Module({
   imports: [UsersModule,
-    
+
     // IMPORT THE SequelizeModule MODULE AND PASS IN THE CONFIGURATION
     SequelizeModule.forRoot({
       dialect: 'mysql',
@@ -33,12 +36,15 @@ dotenv.config();
           rejectUnauthorized: false
         }
       }
-    })
-  
+    }),
+
+    AuthModule,
+    TodosListsModule
+
   ], // IMPORT ALL OTHER MODULES HERE 
   controllers: [AppController],
   providers: [AppService],
 })
 
 // EXPORT MODULE TO BE USED IN OTHER MODULES
-export class AppModule {}
+export class AppModule { }
