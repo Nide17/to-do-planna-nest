@@ -26,5 +26,5 @@ export class UpdateTodosListDto {
     @Length(0, 50)
     updatedAt: Date;
 
-    todos: Array<{ title: string, status: string }>;
+    todos: Array<{ title: string, completed: Boolean }>;
 }

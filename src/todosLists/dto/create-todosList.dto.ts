@@ -16,5 +16,5 @@ export class CreateTodosListDto {
 
     updatedAt: Date;
 
-    todos: Array<{ title: string, status: string }>;
+    todos: Array<{ title: string, completed: Boolean }>;
 }

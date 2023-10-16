@@ -22,7 +22,7 @@ dotenv.config();
       dialect: 'mysql',
       host: process.env.DB_HOST || 'localhost',
       port: parseInt(process.env.DB_PORT) || 3306,
-      username: process.env.DB_USERNAME || 'root',
+      username: process.env.DB_USERNAME || 'parmenide',
       password: process.env.DB_PASSWORD || 'jesus123',
       database: process.env.DB_DATABASE || 'todoplanna',
       // models: [User], // THIS WILL IMPORT ONLY THE USER MODEL

@@ -21,5 +21,5 @@ export class TodosList extends Model { // EXTENDS THE Model CLASS FROM sequelize
     updatedAt: Date;
 
     @Column(DataType.JSON)
-    todos: Array<{ title: string, status: string }>;
+    todos: Array<{ title: string, completed: Boolean }>;
 }
